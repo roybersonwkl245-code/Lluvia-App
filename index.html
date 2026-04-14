@@ -5,42 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lluvia App</title>
     <style>
-        /* Fondo total igual al menú para que el marco sea invisible */
+        /* El fondo ahora es total para que no se vea nada raro */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
+            height: 100vh;
+            width: 100vw;
             overflow: hidden;
-            background-color: #161c28; 
-            display: flex;
-            justify-content: center; /* Centra horizontal */
-            align-items: center;     /* Centra vertical */
+            background-color: #161c28; /* Color de tu menú inferior */
         }
 
         .app-container {
             position: relative;
-            /* Usamos tus medidas exactas */
-            width: 325px;
-            height: 762px;
-            background-color: #0b1120;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Sombra suave para que se vea pro */
+            width: 100%;
+            height: 100%;
         }
 
         .app-iframe {
             width: 100%;
-            height: 100%;
+            /* Hacemos que la app sea un poquito más alta que la pantalla 
+               para empujar el logo de Hércules hacia abajo */
+            height: 105%; 
             border: none;
         }
 
-        /* Franja de seguridad ajustada */
+        /* EL PARCHE INVISIBLE */
         .watermark-hider {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 35px; 
-            background-color: #161c28; 
+            height: 55px; /* Altura ideal para tapar el logo sin comerse los iconos */
+            background-color: #161c28; /* COLOR EXACTO DE TU MENÚ */
             z-index: 9999;
             pointer-events: none;
         }
