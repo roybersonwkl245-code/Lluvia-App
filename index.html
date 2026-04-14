@@ -1,3 +1,8 @@
+Aquí tienes el código completo y definitivo del archivo index.html con los ajustes de altura (60px) y el color corregido para que se camufle perfectamente con tu menú.
+
+Copia y pega todo este bloque en tu archivo de GitHub:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,47 +10,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lluvia App</title>
     <style>
-        /* Configuramos el fondo oscuro para que no haya destellos blancos al cargar */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             overflow: hidden;
-            background-color: #0b1120; 
+            background-color: #0b1120; /* Fondo oscuro base */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Contenedor con la resolución exacta que te dio Hércules */
         .app-container {
             position: relative;
             width: 100%;
-            max-width: 375px;
+            max-width: 375px; /* Resolución de ancho que te dio Hércules */
             height: 100%;
-            max-height: 812px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            max-height: 812px; /* Resolución de alto que te dio Hércules */
         }
 
-        /* El iframe donde se carga tu app de Hércules */
         .app-iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* EL TRUCO: La cinta que tapa la marca de agua */
-        /* Usamos el color #1e2129 que es el de tu menú inferior */
+        /* PARCHE PARA OCULTAR MARCA DE AGUA */
         .watermark-hider {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 100px; /* Altura ajustada para que no tape tus iconos */
-            background-color: #1e2129; 
+            height: 60px; /* Altura aumentada para cubrir el logo que se asoma */
+            background-color: #161c28; /* Color gris azulado de tu barra inferior */
             z-index: 9999;
-            pointer-events: none; /* Esto permite que si tocas la cinta, el clic pase al menú */
+            pointer-events: none; /* Permite tocar los botones si están cerca */
         }
     </style>
 </head>
