@@ -5,48 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lluvia App</title>
     <style>
-        /* El fondo ahora es total para que no se vea nada raro */
+        /* Configuramos el fondo oscuro para que no haya destellos blancos al cargar */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
             overflow: hidden;
-            background-color: #161c28; /* Color de tu menú inferior */
+            background-color: #0b1120; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        /* Contenedor con la resolución exacta que te dio Hércules */
         .app-container {
             position: relative;
             width: 100%;
+            max-width: 375px;
             height: 100%;
+            max-height: 812px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
+        /* El iframe donde se carga tu app de Hércules */
         .app-iframe {
             width: 100%;
-            /* Hacemos que la app sea un poquito más alta que la pantalla 
-               para empujar el logo de Hércules hacia abajo */
-            height: 105%; 
+            height: 100%;
             border: none;
         }
 
-        /* EL PARCHE INVISIBLE */
+        /* EL TRUCO: La cinta que tapa la marca de agua */
+        /* Usamos el color #1e2129 que es el de tu menú inferior */
         .watermark-hider {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 55px; /* Altura ideal para tapar el logo sin comerse los iconos */
-            background-color: #161c28; /* COLOR EXACTO DE TU MENÚ */
+            height: 35px; /* Altura ajustada para que no tape tus iconos */
+            background-color: #1e2129; 
             z-index: 9999;
-            pointer-events: none;
+            pointer-events: none; /* Esto permite que si tocas la cinta, el clic pase al menú */
         }
     </style>
 </head>
 <body>
+
     <div class="app-container">
-        <iframe src="https://lluviapp01.onhercules.app/" class="app-iframe"></iframe>
+        <iframe 
+            src="https://tu-app.onhercules.app" 
+            class="app-iframe">
+        </iframe>
         
         <div class="watermark-hider"></div>
     </div>
+
 </body>
 </html>
+
