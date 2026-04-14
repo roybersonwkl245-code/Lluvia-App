@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lluvia App</title>
     <style>
+        /* El fondo de la página será el mismo gris de tu menú para que no se note el corte */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             overflow: hidden;
-            background-color: #0b1120; /* Fondo oscuro base */
+            background-color: #161c28; /* Color de tu menú */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
         }
 
         .app-container {
             position: relative;
             width: 100%;
-            max-width: 375px; /* Resolución de ancho que te dio Hércules */
-            height: 100%;
-            max-height: 812px; /* Resolución de alto que te dio Hércules */
+            /* AQUÍ ESTÁ TU TRUCO: La app ocupa el 94% de la pantalla, 
+               dejando un 6% abajo para esconder la marca de agua */
+            height: 94%; 
+            background-color: #0b1120;
         }
 
         .app-iframe {
@@ -31,26 +32,22 @@
             border: none;
         }
 
-        /* PARCHE PARA OCULTAR MARCA DE AGUA */
+        /* Esta cinta ahora es parte del fondo, asegurando que nada se vea */
         .watermark-hider {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 60px; /* Altura aumentada para cubrir el logo que se asoma */
-            background-color: #161c28; /* Color gris azulado de tu barra inferior */
+            height: 40px; 
+            background-color: #161c28; /* Color de tu menú */
             z-index: 9999;
-            pointer-events: none; /* Permite tocar los botones si están cerca */
         }
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <iframe 
-            src="https://lluviapp01.onhercules.app/" 
-            class="app-iframe">
-        </iframe>
+        <iframe src="https://lluviapp01.onhercules.app/" class="app-iframe"></iframe>
         
         <div class="watermark-hider"></div>
     </div>
