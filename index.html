@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi App</title>
+    <style>
+        /* Quita los márgenes para que la app ocupe toda la pantalla */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Evita que aparezcan barras de scroll */
+        }
+        
+        /* Hace que el iframe (tu app de Hercules) ocupe toda la pantalla */
+        .app-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .app-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* ESTE ES EL TRUCO SECRETO: Crea una cinta para tapar la marca de agua */
+        .watermark-hider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45px; /* Un poco más alto para asegurar que la tape */
+            background-color: black; /* CAMBIA ESTE COLOR por el color de fondo de tu app */
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- AQUÍ VA LA URL DE TU APP DE HERCULES -->
+        <iframe src="https://lluviaapp01.onhercules.app/" class="app-iframe"></iframe>
+        
+        <!-- Esta es la cinta que tapará la marca de agua -->
+        <div class="watermark-hider"></div>
+    </div>
+
+</body>
+</html>
